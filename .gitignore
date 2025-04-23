@@ -1,2 +1,9 @@
 tempCodeRunnerFile.py
-SD1
+SD1_Trimmed
+Submission_ckpt
+polarization-reflection-removal
+.conda
+.vscode
+*.pyc
+TASHR
+VGG_Model
