@@ -4,6 +4,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras import layers, models
 from PIL import Image
+import gc
 def build_unet(input_shape=(512, 512, 1)):
     '''
     Specifies the model's structure
@@ -72,5 +73,6 @@ def unet_inference(input_image: Image.Image, model, save_path='predictions') -> 
     # Save prediction
     # filename = "enhanced_image.png"
     # prediction_img.save(os.path.join(save_path, filename))
-
+    tf.keras.backend.clear_session()  # Clear TensorFlow session
+    gc.collect()  # Run garbage collection to free up memory
     return prediction_img

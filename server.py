@@ -6,14 +6,11 @@ import base64
 from model_unet_tf import build_unet,unet_inference
 app = Flask(__name__)
 
-
 # Initialize and build the model
 model = build_unet(input_shape=(512, 512, 1))
 
 # Load the weights
 model.load_weights('weights/bright_spot_removal_unet.h5')
-# Load your model here
-
 
 @app.route('/ping', methods=['GET'])
 def health():
@@ -40,7 +37,6 @@ def infer():
     enhanced_image.save(buffer, format="PNG")
     buffer.seek(0)
     img_base64 = base64.b64encode(buffer.read()).decode("utf-8")
-
     return jsonify({"image": img_base64}), 200
 
 if __name__ == '__main__':

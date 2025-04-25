@@ -4,9 +4,11 @@ FROM python:3.9-slim
 WORKDIR /app
 # Copy project files
 COPY server.py /app/
+COPY model_unet_tf.py /app/
 COPY requirements.txt /app/
 COPY weights /app/weights/
 COPY images /app/images/
+
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 # Expose port
