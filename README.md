@@ -1,4 +1,4 @@
-# Unet
+# U-net glare remover
 ### 1. (Model training in test.ipynb) Create env + ipykernel to run the jupyter notebook for training
 ```
 conda create -n unet python=3.9 -y
