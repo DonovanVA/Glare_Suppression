@@ -5,10 +5,13 @@ conda create -n unet python=3.9 -y
 conda activate unet
 pip install ipykernel --upgrade
 ```
+
 Required packages and versions for training:
-```
-tensorflow==2.18.0 scipy==1.14.1 numpy==2.0.2 matplotlib==3.10.0
-```
+`tensorflow==2.18.0` 
+`scipy==1.14.1` 
+`numpy==2.0.2`
+`matplotlib==3.10.0`
+
 
 ### 2. Docker 
 ##### 2.1 Docker build and run image (~1GB container size)
@@ -17,7 +20,7 @@ docker build -t inference-server .
 docker run -d -p 4000:4000  --memory=1g --name inference-active inference-server
 ```
 
-### 2.2 get logs
+##### 2.2 get logs
 ```
 docker logs -f inference-active
 docker stats inference-active
