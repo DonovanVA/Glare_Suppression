@@ -4,6 +4,10 @@ conda create -n unet python=3.9 -y
 conda activate unet
 pip install ipykernel --upgrade
 ```
+Required packages and versions:
+```
+tensorflow==2.18.0 scipy==1.14.1 numpy==2.0.2 matplotlib==3.10.0
+```
 
 # 2. Docker 
 ### 2.1 Docker build and run image

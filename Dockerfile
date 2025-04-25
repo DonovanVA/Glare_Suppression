@@ -5,6 +5,7 @@ WORKDIR /app
 # Copy project files
 COPY server.py /app/
 COPY requirements.txt /app/
+COPY weights /app/weights/
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 # Expose port

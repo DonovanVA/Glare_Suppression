@@ -3,18 +3,39 @@ from flask import Flask, request, jsonify
 from PIL import Image
 import io
 import base64
+from tensorflow.keras.models import load_model
 app = Flask(__name__)
 
 # Load your model here
-# model = load_model('model_path')
-def enhance_image(input_image: Image.Image) -> Image.Image:
+model = load_model('model_path')
+def enhance_image(input_image: Image.Image, save_path='predictions') -> Image.Image:
     '''
-    Convert image to greyscale, enhance image using model inference (.pt)
+    Convert image to greyscale, resize, enhance using pretrained .h5 model.
+    Save prediction and return enhanced image.
     :param input_image: PIL Image
-    :return: enhanced image
+    :param save_path: folder to save result
+    :return: enhanced PIL image
     '''
-   
-    return input_image.convert("L")
+    os.makedirs(save_path, exist_ok=True)
+    
+    # Convert to grayscale and resize
+    image_gray = input_image.convert("L").resize((512, 512))
+
+    # Prepare for model: [1, 512, 512, 1]
+    image_array = np.array(image_gray) / 255.0
+    image_array = np.expand_dims(image_array, axis=(0, -1))  # Shape: (1, 512, 512, 1)
+
+    # Predict
+    prediction = model.predict(image_array)[0, ..., 0]  # Shape: (512, 512)
+
+    # Convert prediction to image (rescale to [0,255])
+    prediction_img = Image.fromarray((prediction * 255).astype(np.uint8))
+
+    # Save prediction
+    # filename = "enhanced_image.png"
+    # prediction_img.save(os.path.join(save_path, filename))
+
+    return prediction_img
 @app.route('/ping', methods=['GET'])
 def health():
     '''
