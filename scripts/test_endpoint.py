@@ -3,16 +3,18 @@ import base64
 import os
 
 # Health check
+base_url= 'http://localhost:4000'
 ping_url = 'http://localhost:4000/ping'
+print("URL:"+base_url)
 try:
     response = requests.get(ping_url)
-    print("Health check response:", response.json())
+    print("/ping response:", response.json())
 except Exception as e:
-    print("❌ Failed to connect to the server:", e)
+    print("Failed to connect to the server:", e)
     exit()
 
 # Image upload and inference
-image_path = 'images/002.png'
+image_path = './images/002.png'
 
 if not os.path.exists(image_path):
     print("Image file not found:", image_path)
@@ -29,8 +31,9 @@ if response.status_code == 200:
     img_data = data['image']
 
     # Save decoded image
-    with open('result.png', 'wb') as f:
+    with open('predictions/result.png', 'wb') as f:
+        print("/infer response:",data)
         f.write(base64.b64decode(img_data))
-    print("✅ Enhanced image saved as result.png")
+    print("Enhanced image saved as predictions/result.png")
 else:
-    print("❌ Error:", response.status_code, response.text)
+    print("Error:", response.status_code, response.text)
