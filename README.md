@@ -23,13 +23,17 @@ docker rm inference-active
 ```
 
 # 3. Tests
-### 3.1 Test endpoint (pre docker):
-1. /predict
+### 3.1 Test endpoint (remote testing):
+
+1. Run the server
+```
+python server.py
+```
+2. /predict
 ```
 curl -X GET  http://localhost:4000/ping
 ```
-
-2. /ping
+3. /ping
 ```
 curl -X POST -F "image=@path_to_image.png" http://localhost:4000/infer
 ```
