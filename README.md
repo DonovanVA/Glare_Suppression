@@ -12,14 +12,14 @@ tensorflow==2.18.0 scipy==1.14.1 numpy==2.0.2 matplotlib==3.10.0
 # 2. Docker 
 ### 2.1 Docker build and run image
 ```
-docker build -t tashr-server .
-docker run -d -p 4000:4000 --name tashr-active tashr-server
+docker build -t inference-server .
+docker run -d -p 4000:4000 --name inference-active inference-server
 ```
 
 ### 2.2 Alternatively stop and remove the image
 ```
-docker stop tashr-active 
-docker rm tashr-active
+docker stop inference-active 
+docker rm inference-active
 ```
 
 # 3. Tests

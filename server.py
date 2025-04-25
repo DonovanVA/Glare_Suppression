@@ -3,11 +3,13 @@ from flask import Flask, request, jsonify
 from PIL import Image
 import io
 import base64
+import os
+import numpy as np
 from tensorflow.keras.models import load_model
 app = Flask(__name__)
 
 # Load your model here
-model = load_model('model_path')
+model = load_model('weights/bright_spot_removal_unet.h5')
 def enhance_image(input_image: Image.Image, save_path='predictions') -> Image.Image:
     '''
     Convert image to greyscale, resize, enhance using pretrained .h5 model.
