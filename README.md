@@ -68,3 +68,7 @@ model.load_weights('weights/bright_spot_removal_unet_text_perceptual.h5')
 ...
 
 ```
+
+References:
+https://arxiv.org/pdf/1505.04597
+https://arxiv.org/pdf/2108.06881v1
