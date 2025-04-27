@@ -1,4 +1,6 @@
 # Image De-glaring
+- 
+
 ### 1. (Model training in test.ipynb) Create env + ipykernel to run the jupyter notebook for training
 ```
 conda create -n unet python=3.9 -y
@@ -17,7 +19,7 @@ Required packages and versions for training:
 ##### 2.1 Docker build and run image (~1GB container size)
 ```
 docker build -t inference-server .
-docker run -d -p 4000:4000  --memory=1g --name inference-active inference-server
+docker run -d -p 4000:4000 --name inference-active inference-server
 ```
 
 ##### 2.2 get logs

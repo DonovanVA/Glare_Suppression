@@ -8,6 +8,7 @@ import gc
 def build_unet(input_shape=(512, 512, 1)):
     '''
     Specifies the model's structure
+    :param input_shape: shape of the input image (default is (512, 512, 1))
     '''
     def conv_block(x, filters):
         x = layers.Conv2D(filters, (3, 3), padding='same', activation='relu')(x)

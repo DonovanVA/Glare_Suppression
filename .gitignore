@@ -7,3 +7,4 @@ polarization-reflection-removal
 *.pyc
 TASHR
 VGG_Model
+.DS_Store

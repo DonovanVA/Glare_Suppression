@@ -10,7 +10,8 @@ app = Flask(__name__)
 model = build_unet(input_shape=(512, 512, 1))
 
 # Load the weights
-model.load_weights('weights/bright_spot_removal_unet.h5')
+model.load_weights('weights/bright_spot_removal_unet_text_perceptual.h5')
+#model.load_weights('weights/bright_spot_removal_unet.h5')
 
 @app.route('/ping', methods=['GET'])
 def health():
