@@ -53,7 +53,9 @@ curl -X POST -F "image=@images/002.png" http://localhost:4000/infer
 ```
 python scripts/test_endpoint.py     
 ```
-the script will save images in `/predictions` and `/predictions_mae` will have images that are pre-ran using the U-Net with mae loss
+the script will save images in `/predictions`
+
+`/predictions_mae` will have images that are pre-ran using the U-Net with mae loss
 
 ### 4. You can toggle the model (text_perceptual/mae) in server.py
 '''
