@@ -5,7 +5,7 @@
 
 ### 1. (Model training in train.ipynb) Create env + ipykernel to run the jupyter notebook for training, or use colab
 
-Python 3.9
+Python version: Python 3.9
 ```
 conda create -n unet python=3.9 -y
 conda activate unet
@@ -51,13 +51,11 @@ curl -X GET  http://localhost:4000/ping
 curl -X POST -F "image=@images/002.png" http://localhost:4000/infer
 ```
 
-3. Script (both `/ping` and `/infer`), image will be saved in predictions folder
+3. Script (both `/ping` and `/infer`), images will be read from `images` and results will be saved in `predictions` folder
 ```
 python scripts/test_endpoint.py     
 ```
-the script will save images in `predictions`
-
-`predictions_mae` will have images that are pre-ran using the U-Net with mae loss
+`predictions_mae` will have images that are pre-ran using the U-Net with mae loss for comparison
 
 ### 4. You can toggle the model (text_perceptual/mae) in server.py
 ```
