@@ -1,9 +1,9 @@
 # Image De-glaring
-- Artefact (1): train.py
+- Artefact (1): train.ipynb
 - Artefact (3): Dockerfile
 - Artefact (4): scripts/test_endpoint.py
 
-### 1. (Model training in test.ipynb) Create env + ipykernel to run the jupyter notebook for training
+### 1. (Model training in train.ipynb) Create env + ipykernel to run the jupyter notebook for training
 ```
 conda create -n unet python=3.9 -y
 conda activate unet
@@ -53,3 +53,11 @@ curl -X POST -F "image=@images/002.png" http://localhost:4000/infer
 ```
 python scripts/test_endpoint.py     
 ```
+the script will save images in `/predictions` and `/predictions_mae` will have images that are pre-ran using the U-Net with mae loss
+
+### 4. You can toggle the model (text_perceptual/mae) in server.py
+'''
+# Load the weights
+model.load_weights('weights/bright_spot_removal_unet_text_perceptual.h5')
+#model.load_weights('weights/bright_spot_removal_unet.h5')
+'''
