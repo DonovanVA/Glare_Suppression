@@ -59,7 +59,8 @@ the script will save images in `/predictions`
 
 ### 4. You can toggle the model (text_perceptual/mae) in server.py
 '''
-# Load the weights
+...
 model.load_weights('weights/bright_spot_removal_unet_text_perceptual.h5')
 #model.load_weights('weights/bright_spot_removal_unet.h5')
+...
 '''
