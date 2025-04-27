@@ -4,6 +4,7 @@
 - Artefact (4): scripts/test_endpoint.py
 
 ### 1. (Model training in train.ipynb) Create env + ipykernel to run the jupyter notebook for training, or use colab
+
 Python 3.9
 ```
 conda create -n unet python=3.9 -y
@@ -19,26 +20,26 @@ Required packages and versions for training (done on google colab):
 
 
 ### 2. Docker 
-##### 2.1 Docker build and run image (~1GB container size)
+#### 2.1 Docker build and run image (~1GB container size)
 ```
 docker build -t inference-server .
 docker run -d -p 4000:4000 --name inference-active inference-server
 ```
 
-##### 2.2 Get logs
+#### 2.2 Get logs
 ```
 docker logs -f inference-active
 docker stats inference-active
 ```
 
-##### 2.3 Alternatively stop and remove the image if error occurs
+#### 2.3 Alternatively stop and remove the image if error occurs
 ```
 docker stop inference-active 
 docker rm inference-active
 ```
 
 ### 3. Tests
-##### 3.1 Test endpoint (remote testing):
+#### 3.1 Test endpoint (remote testing):
 
 1. `/predict`
 ```
