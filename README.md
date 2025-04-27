@@ -58,9 +58,11 @@ the script will save images in `/predictions`
 `/predictions_mae` will have images that are pre-ran using the U-Net with mae loss
 
 ### 4. You can toggle the model (text_perceptual/mae) in server.py
-'''
+```
+
 ...
 model.load_weights('weights/bright_spot_removal_unet_text_perceptual.h5')
 #model.load_weights('weights/bright_spot_removal_unet.h5')
 ...
-'''
+
+```
