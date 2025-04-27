@@ -3,14 +3,15 @@
 - Artefact (3): Dockerfile
 - Artefact (4): scripts/test_endpoint.py
 
-### 1. (Model training in train.ipynb) Create env + ipykernel to run the jupyter notebook for training
+### 1. (Model training in train.ipynb) Create env + ipykernel to run the jupyter notebook for training, or use colab
+Python 3.9
 ```
 conda create -n unet python=3.9 -y
 conda activate unet
 pip install ipykernel --upgrade
 ```
 
-Required packages and versions for training:
+Required packages and versions for training (done on google colab):
 `tensorflow==2.18.0` 
 `scipy==1.14.1` 
 `numpy==2.0.2`
