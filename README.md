@@ -1,5 +1,7 @@
 # Image De-glaring
-- 
+- Artefact (1): train.py
+- Artefact (3): Dockerfile
+- Artefact (4): scripts/test_endpoint.py
 
 ### 1. (Model training in test.ipynb) Create env + ipykernel to run the jupyter notebook for training
 ```
