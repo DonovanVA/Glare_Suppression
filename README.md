@@ -22,7 +22,7 @@ docker build -t inference-server .
 docker run -d -p 4000:4000 --name inference-active inference-server
 ```
 
-##### 2.2 get logs
+##### 2.2 Get logs
 ```
 docker logs -f inference-active
 docker stats inference-active
