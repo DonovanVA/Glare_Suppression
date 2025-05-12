@@ -40,7 +40,7 @@ for image in os.listdir(image_path):
                 with open(save_image_path_name, 'wb') as f:
                     print("/infer response:",data)
                     f.write(base64.b64decode(img_data))
-                print("Enhanced image saved as predictions/result.png")
+                print("Enhanced image saved in predictions directory")
                 
     else:
         print("Error:", response.status_code, response.text)
